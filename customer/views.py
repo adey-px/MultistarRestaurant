@@ -50,7 +50,7 @@ def registerUser(request):
         form = registerForm()
     context = {"form": form}
 
-    return render(request, "customer/registerUser.html", context)
+    return render(request, "customer/register.html", context)
 
 
 """
