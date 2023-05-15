@@ -1,5 +1,5 @@
 """
-MultistarRestaurant URL Configuration
+MultistarRestaurants URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
@@ -21,8 +21,8 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.homePage, name='index'),
-    path('customer/', include('customer.urls')),
-    path('merchant/', include('merchant.urls')),
+    path("admin/", admin.site.urls),
+    path("", views.homePage, name="index"),
+    path("customer/", include("customer.urls")),
+    path("merchant/", include("merchant.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
