@@ -6,6 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    sys.dont_write_bytecode = True
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "MultistarRestaurants.settings")
     try:
         from django.core.management import execute_from_command_line
