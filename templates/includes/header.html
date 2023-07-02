@@ -12,11 +12,13 @@
             <div class="logo">
               <figure>
                 <a href="/" class="light-logo">
-                  <img src="{% static 'extra-images/main-logo.png' %}" alt="FoodBakery">
+                  <img src="{% static 'extra-images/main-logo.png' %}" alt="logo">
                 </a>
               </figure>
             </div>
-            <div class="main-location ml-5">
+
+            <!-- search location form -->
+            <div class="main-location">
               <ul>
                 <li class="location-has-children choose-location">
                   <form action="#">
@@ -31,16 +33,18 @@
               </ul>
             </div>
           </div>
+
+          <!-- register and login buttons -->
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <div class="login-option mt-4">
-              <a href="{% url 'registerUser' %}">
-                <strong>Register</strong>
+            <div class="login-option">
+              <a href="{% url 'registerCustomer' %}" class="login-popup mr-0">
+                <strong>Customer</strong>
+              </a> /
+              <a href="{% url 'registerMerchant' %}" class="login-popup ml-0">
+                <strong>Merchant</strong>
               </a>
               <a href="#" class="get-start-btn">
-                Customer
-              </a>
-              <a href="#" class="get-start-btn">
-                Merchant
+               Login
               </a>
             </div>
           </div>

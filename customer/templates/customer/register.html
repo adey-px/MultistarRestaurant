@@ -12,7 +12,7 @@
             <div class="user-dashboard loader-holder">
               <div class="user-holder">
                 <h4 class="text-center" style="margin-bottom: 0;">
-                  WELCOME TO MULTISTAR
+                  REGISTER
                 </h4>
                 <p class="text-center">
                   Please fill this form to get yourself 
@@ -24,7 +24,7 @@
                 </div>
                 <hr>
                 <div id="restaurant-sets-holder">
-                  <form action="{% url 'registerUser' %}" method="post"
+                  <form  method="post" action="{% url 'registerCustomer' %}"
                     class="form-fields-set foodbakery-dev-restaurant-form">
                     {% csrf_token %}
                     <ul class="register-add-restaurant-tab-container restaurant-information-tab-container">

@@ -2,6 +2,7 @@ from django import forms
 from .models import User
 
 
+# Form for user/customer registration
 class registerForm(forms.ModelForm):
     """
     Create form fields from selected fields in custom
@@ -33,10 +34,8 @@ class registerForm(forms.ModelForm):
 
         # this shows as non_field_errors in template
         cleaned_data = super(registerForm, self).clean()
-        password = cleaned_data.get('password')
-        conf_password = cleaned_data.get('conf_password')
+        password = cleaned_data.get("password")
+        conf_password = cleaned_data.get("conf_password")
 
         if password != conf_password:
-            raise forms.ValidationError(
-                'Passwords do not match'
-            )
+            raise forms.ValidationError("Passwords failed to match")

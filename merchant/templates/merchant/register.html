@@ -5,14 +5,14 @@
   <!-- Main Section Start -->
   <div class="main-section">
     <div class="page-section nopadding cs-nomargin"
-      style="margin-top: 0px;padding-top: 60px;padding-bottom: 60px;margin-bottom: 0px;">
+      style="margin-top: 0px; padding-top: 60px; padding-bottom: 60px;margin-bottom: 0px;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
             <div class="user-dashboard loader-holder">
               <div class="user-holder">
                 <h4 class="text-center" style="margin-bottom: 0;">
-                  PARTNER WITH MULTISTAR
+                  NEW MERCHANT
                 </h4>
                 <p class="text-center">
                   Please fill this form to get yourself 
@@ -24,7 +24,7 @@
                 </div>
                 <hr>
                 <div id="restaurant-sets-holder">
-                  <form action="{% url 'registerUser' %}" method="post"
+                  <form method="post" action="{% url 'registerMerchant' %}" enctype="multipart/form-data"
                     class="form-fields-set foodbakery-dev-restaurant-form">
                     {% csrf_token %}
                     <ul class="register-add-restaurant-tab-container restaurant-information-tab-container">
@@ -36,26 +36,38 @@
                                 <li>
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="field-holder">
-                                      <label>First name</label>
-                                      {{ form.first_name }}
+                                      <label>First Name</label>
+                                      {{ regform.first_name }}
                                     </div>
                                   </div>
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="field-holder">
-                                      <label>Last name</label>
-                                      {{ form.last_name }}
+                                      <label>Last Name</label>
+                                      {{ regform.last_name }}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-holder">
+                                      <label>Merchant Name</label>
+                                      {{ merform.merchant_name }}
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="field-holder">
+                                      <label>Merchant Licence</label>
+                                      {{ merform.merchant_license }}
                                     </div>
                                   </div>
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="field-holder">
                                       <label>Email Address</label>
-                                      {{ form.email }}
+                                      {{ regform.email }}
                                     </div>
                                   </div>
                                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="field-holder">
                                       <label>Username</label>
-                                      {{ form.username }}
+                                      {{ regform.username }}
                                     </div>
                                   </div>
                                 </li>
@@ -63,13 +75,13 @@
                                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="field-holder">
                                       <label>Password</label>
-                                      {{ form.password }}
+                                      {{ regform.password }}
                                     </div>
                                   </div>
                                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <div class="field-holder">
                                       <label>Confirm Password</label>
-                                      {{ form.conf_password }}
+                                      {{ regform.conf_password }}
                                     </div>
                                   </div>
                                 </li>
