@@ -21,11 +21,11 @@ def registerCustomer(request):
 
         # check form data validity
         if regform.is_valid():
-            first_name =  regform.cleaned_data["first_name"]
-            last_name =  regform.cleaned_data["last_name"]
-            username =  regform.cleaned_data["username"]
-            email =  regform.cleaned_data["email"]
-            password =  regform.cleaned_data["password"]
+            first_name = regform.cleaned_data["first_name"]
+            last_name = regform.cleaned_data["last_name"]
+            username = regform.cleaned_data["username"]
+            email = regform.cleaned_data["email"]
+            password = regform.cleaned_data["password"]
 
             user = User.objects.create_user(
                 first_name=first_name,
@@ -37,11 +37,12 @@ def registerCustomer(request):
             user.role = User.CUSTOMER
             user.save()
 
-            # customer show in User model by default
-            # set to show in Customer model also
+            # customers show in User model by default, set below to show in Merchant model also
+            # get data from byeform, set its user data from customer model to user created above
             customer = byeform.save(commit=False)
             customer.user = user
 
+            # get profile from the user created above, set it to profile in customer model
             profile = Profile.objects.get(user=user)
             customer.profile = profile
             customer.save()
@@ -53,7 +54,7 @@ def registerCustomer(request):
         # if form data is not valid, handle any field errors
         else:
             print("Form data posted is not invalid")
-            print( regform.errors)
+            print(regform.errors)
 
     # if not post method, just display the form
     else:
@@ -66,7 +67,6 @@ def registerCustomer(request):
         "regform": regform,
         "byeform": byeform,
     }
-
 
     return render(request, "customer/register.html", context)
 

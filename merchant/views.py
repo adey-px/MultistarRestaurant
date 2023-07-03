@@ -36,11 +36,12 @@ def registerMerchant(request):
             user.role = User.MERCHANT
             user.save()
 
-            # merchant show in User model by default
-            # set to show in Merchant model also
+            # merchants show in User model by default, set below to show in Merchant model also
+            # get data from byeform, set its user data from merchant model to user created above
             merchant = byeform.save(commit=False)
             merchant.user = user
 
+            # get profile from the user created above, set it to profile in merchant model
             profile = Profile.objects.get(user=user)
             merchant.profile = profile
             merchant.save()
