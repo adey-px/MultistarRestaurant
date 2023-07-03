@@ -6,10 +6,11 @@ from .models import Merchant
 class MerchantForm(forms.ModelForm):
     """
     Since Merchant model inherited from User model,
-    other fields will supply from User model by linking
+    default fields supply from User model by linking
     MerchantForm to account RegisterForm in views.py
     """
 
+    # add extra fields to register merchant
     class Meta:
         model = Merchant
         fields = [

@@ -6,10 +6,11 @@ from .models import Customer
 class CustomerForm(forms.ModelForm):
     """
     Since Customer model inherited from User model,
-    other fields will supply from User model by linking
+    default fields supply from User model by linking
     CustomerForm to account RegisterForm in views.py
     """
 
+    # no extra fields yet, can add in future
     class Meta:
         model = Customer
         fields = []

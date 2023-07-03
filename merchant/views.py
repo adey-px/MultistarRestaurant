@@ -36,7 +36,8 @@ def registerMerchant(request):
             user.role = User.MERCHANT
             user.save()
 
-            # re-watch
+            # merchant show in User model by default
+            # set to show in Merchant model also
             merchant = byeform.save(commit=False)
             merchant.user = user
 

@@ -37,7 +37,8 @@ def registerCustomer(request):
             user.role = User.CUSTOMER
             user.save()
 
-            # re-watch
+            # customer show in User model by default
+            # set to show in Customer model also
             customer = byeform.save(commit=False)
             customer.user = user
 
