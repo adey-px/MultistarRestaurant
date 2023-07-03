@@ -72,8 +72,8 @@ DATABASES = {
     }
 }
 
-# Indicate using custom user model class
-AUTH_USER_MODEL = "customer.User"
+# Set custom User model to use
+AUTH_USER_MODEL = "account.User"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

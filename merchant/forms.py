@@ -3,12 +3,13 @@ from .models import Merchant
 
 
 # Form for merchant registration
-class merchantForm(forms.ModelForm):
+class MerchantForm(forms.ModelForm):
     """
-    Since merchant model inherited from User model,
+    Since Merchant model inherited from User model,
     other fields will supply from User model by linking
-    customer registerForm to merchantForm in views.py
+    MerchantForm to account RegisterForm in views.py
     """
+
     class Meta:
         model = Merchant
         fields = [
@@ -16,7 +17,8 @@ class merchantForm(forms.ModelForm):
             "merchant_license",
         ]
 
-"""Note:
+
+""" Note:
 Set enctype="multipart/form-data" in form template
 to allow file upload 
 """

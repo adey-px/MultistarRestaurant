@@ -1,41 +1,21 @@
 from django import forms
-from .models import User
+from .models import Customer
 
 
-# Form for user/customer registration
-class registerForm(forms.ModelForm):
+# Form for merchant registration
+class CustomerForm(forms.ModelForm):
     """
-    Create form fields from selected fields in custom
-    User model. Fields here used as input elements
-    in registerUser template via views.py
+    Since Customer model inherited from User model,
+    other fields will supply from User model by linking
+    CustomerForm to account RegisterForm in views.py
     """
-
-    # add custom pword fields not listed in User model
-    password = forms.CharField(widget=forms.PasswordInput())
-    conf_password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
-        model = User
-        fields = [
-            "first_name",
-            "last_name",
-            "username",
-            "email",
-        ]
+        model = Customer
+        fields = []
 
-    # custom fields validation
-    def clean(self):
-        """
-        Validate password fields and catch any
-        non-field erros. Both field & non-field
-        errors show in registerUser template.
-        Field errors are handled in views.
-        """
 
-        # this shows as non_field_errors in template
-        cleaned_data = super(registerForm, self).clean()
-        password = cleaned_data.get("password")
-        conf_password = cleaned_data.get("conf_password")
-
-        if password != conf_password:
-            raise forms.ValidationError("Passwords failed to match")
+""" Note:
+Set enctype="multipart/form-data" in form template
+to allow file upload 
+"""

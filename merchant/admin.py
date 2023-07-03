@@ -8,11 +8,12 @@ class MerchantAdmin(admin.ModelAdmin):
         "user",
         "merchant_name",
         "created_at",
+        "modified_at",
         "is_approved",
     )
 
-    # set clickable item to view merchant details
-    list_display_links = ("user", "merchant_name")
+    # # set clickable item to view merchant details
+    # list_display_links = ("merchant_name", "user")
 
 
 # Register your models here.

@@ -5,25 +5,25 @@ from customer.models import User, Profile
 # Merchant model
 class Merchant(models.Model):
     """
-    Model for merchant using existing custom
-    User and UserProfile models.
+    Model for merchant using existing
+    custom User and Profile models
     """
 
-    # fields supplied from User model
-    user = models.OneToOneField(User, related_name="user", on_delete=models.CASCADE)
+    # fields from User & Profile models
+    user = models.OneToOneField(User, related_name="merchant", on_delete=models.CASCADE)
     profile = models.OneToOneField(
-        Profile, related_name="profile", on_delete=models.CASCADE
+        Profile, related_name="merchant", on_delete=models.CASCADE
     )
 
-    # extra fields for merchantForm
+    # extra fields for MerchantForm
     merchant_name = models.CharField(max_length=50)
     merchant_license = models.ImageField(upload_to="merchants/licence")
 
     # fields to auto capture
-    is_approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    is_approved = models.BooleanField(default=False)
 
-    # identify merchant by name
+    # return merchant by merchant_name in admin
     def __str__(self):
-        return self.merchant_name
+        return self.user.email
